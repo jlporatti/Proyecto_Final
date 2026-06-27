@@ -1,12 +1,13 @@
 import ProductService from '../services/product.service.js';
 
-// Controlador de productos
+// Definimos el Controlador de productos
 class ProductController {
   // GET /api/products - Obtenemos todos los productos
   static async getAllProducts(req, res, next) {
     try {
       const result = await ProductService.getAllProducts();
       return res.status(200).json(result);
+
     } catch (error) {
       next(error);
     }
@@ -23,6 +24,7 @@ class ProductController {
       }
 
       return res.status(200).json(result);
+
     } catch (error) {
       next(error);
     }
@@ -45,6 +47,7 @@ class ProductController {
 
       const result = await ProductService.createProduct(productData);
       return res.status(201).json(result);
+
     } catch (error) {
       next(error);
     }
@@ -63,6 +66,7 @@ class ProductController {
       }
 
       return res.status(200).json(result);
+
     } catch (error) {
       next(error);
     }
@@ -79,6 +83,7 @@ class ProductController {
       }
 
       return res.status(200).json(result);
+
     } catch (error) {
       next(error);
     }
@@ -90,6 +95,7 @@ class ProductController {
       const { category } = req.params;
       const result = await ProductService.getProductsByCategory(category);
       return res.status(200).json(result);
+      
     } catch (error) {
       next(error);
     }

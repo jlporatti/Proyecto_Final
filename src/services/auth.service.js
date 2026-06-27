@@ -45,6 +45,7 @@ class AuthService {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       return decoded;
+
     } catch (error) {
       throw new Error('Token inválido o expirado');
     }
@@ -100,6 +101,7 @@ class AuthService {
         message: 'Token refrescado exitosamente',
         token: newToken
       };
+      
     } catch (error) {
       throw new Error('No se pudo refrescar el token: ' + error.message);
     }

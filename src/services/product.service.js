@@ -11,6 +11,7 @@ class ProductService {
         count: products.length,
         data: products
       };
+      
     } catch (error) {
       throw new Error('Error al obtener productos: ' + error.message);
     }
@@ -36,6 +37,7 @@ class ProductService {
         success: true,
         data: product
       };
+
     } catch (error) {
       throw new Error('Error al obtener producto: ' + error.message);
     }
@@ -64,6 +66,7 @@ class ProductService {
         message: 'Producto creado exitosamente',
         data: newProduct
       };
+
     } catch (error) {
       throw new Error('Error al crear producto: ' + error.message);
     }
@@ -99,6 +102,7 @@ class ProductService {
         message: 'Producto actualizado exitosamente',
         data: updatedProduct
       };
+
     } catch (error) {
       throw new Error('Error al actualizar producto: ' + error.message);
     }
@@ -124,6 +128,7 @@ class ProductService {
         success: true,
         message: 'Producto eliminado exitosamente'
       };
+
     } catch (error) {
       throw new Error('Error al eliminar producto: ' + error.message);
     }
@@ -143,6 +148,7 @@ class ProductService {
         count: products.length,
         data: products
       };
+
     } catch (error) {
       throw new Error('Error al buscar productos por categoría: ' + error.message);
     }

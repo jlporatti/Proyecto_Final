@@ -1,11 +1,11 @@
 import AuthService from '../services/auth.service.js';
 
-// Controlador de autenticación
-
+// Definimos el Controlador de autenticación
 class AuthController {
   // POST /auth/login - Manejamos el inicio de sesión del usuario
 
   static async login(req, res, next) {
+
     try {
       const { email, password } = req.body;
 
@@ -19,8 +19,8 @@ class AuthController {
 
       // Procesamos el login
       const result = AuthService.login(email, password);
-
       return res.status(200).json(result);
+
     } catch (error) {
       // Si las credenciales son inválidas, retornamos 401
       if (error.message.includes('Credenciales inválidas')) {

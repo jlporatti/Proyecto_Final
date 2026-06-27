@@ -33,6 +33,7 @@ export const verifyToken = (req, res, next) => {
     req.user = decoded;
     
     next();
+
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
       return res.status(401).json({
@@ -70,6 +71,7 @@ export const optionalAuth = (req, res, next) => {
     }
     
     next();
+    
   } catch (error) {
     // Si hay error, simplemente continuar sin usuario autenticado
     next();

@@ -30,8 +30,7 @@ dotenv.config();
 
 let db = null;
 
-//Inicializamos la conexión con Firebase Admin SDK
-
+// Inicializamos la conexión con Firebase Admin SDK
 export const initializeFirebase = async () => {
   try {
     const serviceAccount = await import('../../firebase-service-account.json', {

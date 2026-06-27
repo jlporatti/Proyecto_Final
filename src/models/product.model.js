@@ -44,6 +44,7 @@ class ProductModel {
       });
       
       return products;
+
     } catch (error) {
       console.error('Error al obtener los productos:', error);
       throw new Error('Error al obtener los productos: ' + error.message);
@@ -119,6 +120,7 @@ class ProductModel {
         id: docRef.id,
         ...newProduct
       };
+
     } catch (error) {
       console.error('Error al crear el producto:', error);
       throw new Error('Error al crear el producto: ' + error.message);
@@ -164,6 +166,7 @@ class ProductModel {
         id: updatedDoc.id,
         ...updatedDoc.data()
       };
+
     } catch (error) {
       console.error('Error al actualizar el producto:', error);
       throw new Error('Error al actualizar el producto: ' + error.message);
@@ -189,6 +192,7 @@ class ProductModel {
 
       await docRef.delete();
       return true;
+      
     } catch (error) {
       console.error('Error al eliminar el producto:', error);
       throw new Error('Error al eliminar el producto: ' + error.message);
