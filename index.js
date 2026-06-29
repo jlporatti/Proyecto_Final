@@ -65,29 +65,31 @@ app.use(notFoundHandler);
 // Middleware para manejo de errores
 app.use(errorHandler);
 
-// Iniciamos el servidor
-app.listen(PORT, () => {
-  console.log('='.repeat(50));
-  console.log('🚀 Servidor iniciado exitosamente');
-  console.log('='.repeat(50));
-  console.log(`📡 Puerto: ${PORT}`);
-  console.log(`🌍 Entorno: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🔗 URL: http://localhost:${PORT}`);
-  console.log('='.repeat(50));
-  console.log('📚 Endpoints disponibles:');
-  console.log('   GET  /                          - Para Obtener Información de la API');
-  console.log('   POST /auth/login                - Para Iniciar sesión');
-  console.log('   GET  /api/products              - Para Obtener todos los productos');
-  console.log('   GET  /api/products/:id          - Para Obtener producto por ID');
-  console.log('   POST /api/products/create       - Para Crear producto (requiere auth)');
-  console.log('   PUT  /api/products/:id          - Para Actualizar producto (requiere auth)');
-  console.log('   DELETE /api/products/:id        - Para Eliminar producto (requiere auth)');
-  console.log('='.repeat(50));
-  console.log('💡 Credenciales de prueba:');
-  console.log(`   Email: ${process.env.ADMIN_EMAIL || 'admin@example.com'}`);
-  console.log(`   Password: ${process.env.ADMIN_PASSWORD || 'admin123'}`);
-  console.log('='.repeat(50));
-});
+
+//  Se saca para Vercel, ya que Vercel maneja el servidor automáticamente
+// // Iniciamos el servidor.
+// app.listen(PORT, () => {
+//   console.log('='.repeat(50));
+//   console.log('🚀 Servidor iniciado exitosamente');
+//   console.log('='.repeat(50));
+//   console.log(`📡 Puerto: ${PORT}`);
+//   console.log(`🌍 Entorno: ${process.env.NODE_ENV || 'development'}`);
+//   console.log(`🔗 URL: http://localhost:${PORT}`);
+//   console.log('='.repeat(50));
+//   console.log('📚 Endpoints disponibles:');
+//   console.log('   GET  /                          - Para Obtener Información de la API');
+//   console.log('   POST /auth/login                - Para Iniciar sesión');
+//   console.log('   GET  /api/products              - Para Obtener todos los productos');
+//   console.log('   GET  /api/products/:id          - Para Obtener producto por ID');
+//   console.log('   POST /api/products/create       - Para Crear producto (requiere auth)');
+//   console.log('   PUT  /api/products/:id          - Para Actualizar producto (requiere auth)');
+//   console.log('   DELETE /api/products/:id        - Para Eliminar producto (requiere auth)');
+//   console.log('='.repeat(50));
+//   console.log('💡 Credenciales de prueba:');
+//   console.log(`   Email: ${process.env.ADMIN_EMAIL || 'admin@example.com'}`);
+//   console.log(`   Password: ${process.env.ADMIN_PASSWORD || 'admin123'}`);
+//   console.log('='.repeat(50));
+// });
 
 // Manejamos los errores no capturados
 process.on('unhandledRejection', (err) => {
