@@ -19,10 +19,15 @@ await initializeFirebase();
 //const PORT = process.env.PORT || 3000;
 
 // Middlewares globales
-app.use(cors()); // Habilitamos CORS para peticiones de origen cruzado
-app.use(bodyParser.json()); // Parseamos body en formato JSON
-app.use(bodyParser.urlencoded({ extended: true })); // Parseamos URL-encoded bodies
-app.use(requestLogger); // Logger de peticiones
+// app.use(cors()); // Habilitamos CORS para peticiones de origen cruzado
+// app.use(bodyParser.json()); // Parseamos body en formato JSON
+// app.use(bodyParser.urlencoded({ extended: true })); // Parseamos URL-encoded bodies
+// app.use(requestLogger); // Logger de peticiones
+
+app.use(cors());
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger);
 
 // Ruta de bienvenida
 app.get('/', (req, res) => {
