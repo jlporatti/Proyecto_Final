@@ -10,12 +10,13 @@ import { notFoundHandler, errorHandler, requestLogger } from './src/middlewares/
 // Cargamos las variables de entorno
 dotenv.config();
 
+// Creamos la aplicación
+const app = express();
+
 // Inicializamos Firebase
 await initializeFirebase();
 
-// Creamos la aplicación
-const app = express();
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 
 // Middlewares globales
 app.use(cors()); // Habilitamos CORS para peticiones de origen cruzado
@@ -91,16 +92,16 @@ app.use(errorHandler);
 //   console.log('='.repeat(50));
 // });
 
-// Manejamos los errores no capturados
-process.on('unhandledRejection', (err) => {
-  console.error('❌ Error no manejado:', err);
-  process.exit(1);
-});
+// // Manejamos los errores no capturados
+// process.on('unhandledRejection', (err) => {
+//   console.error('❌ Error no manejado:', err);
+//   process.exit(1);
+// });
 
-process.on('uncaughtException', (err) => {
-  console.error('❌ Excepción no capturada:', err);
-  process.exit(1);
-});
+// process.on('uncaughtException', (err) => {
+//   console.error('❌ Excepción no capturada:', err);
+//   process.exit(1);
+// });
 
-module.exports = app;
+
 export default app;
