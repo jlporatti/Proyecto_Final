@@ -16,18 +16,13 @@ const app = express();
 // Inicializamos Firebase
 await initializeFirebase();
 
-//const PORT = process.env.PORT || 3000;
+// Sacado para Vercel, ya que Vercel maneja el puerto automáticamente
+//const PORT = process.env.PORT || 3000; 
 
-// Middlewares globales
-// app.use(cors()); // Habilitamos CORS para peticiones de origen cruzado
-// app.use(bodyParser.json()); // Parseamos body en formato JSON
-// app.use(bodyParser.urlencoded({ extended: true })); // Parseamos URL-encoded bodies
-// app.use(requestLogger); // Logger de peticiones
-
-app.use(cors());
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true }));
-app.use(requestLogger);
+app.use(cors());                                 // Permitimos peticiones de otros dominios
+app.use(express.json());                         // Procesamos datos en formato JSON
+app.use(express.urlencoded({ extended: true })); // Procesamos datos de formularios
+app.use(requestLogger);                          // Registramos cada petición en los logs
 
 // Ruta de bienvenida
 app.get('/', (req, res) => {
@@ -97,16 +92,16 @@ app.use(errorHandler);
 //   console.log('='.repeat(50));
 // });
 
-// // Manejamos los errores no capturados
-// process.on('unhandledRejection', (err) => {
-//   console.error('❌ Error no manejado:', err);
-//   process.exit(1);
-// });
+// Manejamos los errores no capturados
+process.on('unhandledRejection', (err) => {
+  console.error('❌ Error no manejado:', err);
+  process.exit(1);
+});
 
-// process.on('uncaughtException', (err) => {
-//   console.error('❌ Excepción no capturada:', err);
-//   process.exit(1);
-// });
+process.on('uncaughtException', (err) => {
+  console.error('❌ Excepción no capturada:', err);
+  process.exit(1);
+});
 
 
 export default app;
